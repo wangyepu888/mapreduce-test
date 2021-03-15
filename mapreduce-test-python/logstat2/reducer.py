@@ -19,12 +19,12 @@ sorted_dict_ip_count = sorted(dict_ip_count.items(), key=itemgetter(0))
 dic={}
 L=[0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0,0]
 
-for ip, count in sorted_dict_ip_count:   
+for key, value in sorted_dict_ip_count.items():   
     for i in range(24):
        j='0'+str(i)
-       if ip[1]==j[-2]&ip[2]==j[-1]&L[i]<4:
-          dic[ip]=count
+       if (key[1]==j[-2])&(key[2]==j[-1])&(L[i]<3):
+          dic[key]=value
           L[i]=L[i]+1
     
-for ip, count in dic:
-    print ('%s\t%s' % (ip, count))
+for key, value in dic.items():
+    print ('%s\t%s' % (key,value))
